@@ -24,8 +24,8 @@ jobs:
         include:
         - version: MINI
           explain: ARMv8 精简版，主打科学上网适合养老
-        - version: PLUS
-          explain: ARMv8 多功能版，集成插件多适合折腾
+        # - version: PLUS
+        #   explain: ARMv8 多功能版，集成插件多适合折腾
 
     steps:
     - name: Checkout
@@ -75,9 +75,9 @@ jobs:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: h28k
         WHOAMI: Haiibo
-        KERNEL_VERSION_NAME: 6.1.5
-        KERNEL_AUTO_LATEST: true
-        DISTRIB_REVISION: R${{ env.DATE1 }} by Haiibo
+        KERNEL_VERSION_NAME: 6.6.21
+        KERNEL_AUTO_LATEST: false
+        DISTRIB_REVISION: R${{ env.DATE1 }} by Zhuohui
 
     - name: Upload OpenWrt To Artifact
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE != 'true'
